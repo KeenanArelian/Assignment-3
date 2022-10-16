@@ -1,0 +1,116 @@
+body {
+    background: #f7cac9;
+}
+
+.big-box {
+    width:1000px;
+    height:850px;
+    margin: auto;
+    background: #dd4124;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgb(221, 174, 34);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.big-box h1 {
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.big-box .form-world {
+    display: flex;
+    justify-content: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-color: rgb(34, 221, 128);
+}
+
+.row-1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.row-2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.active {
+    width:25%;
+    height: 300px;
+    margin:20px;
+    box-sizing:border-box;
+    background-color: #4ab6c0;
+    border: 5px solid;
+    text-align: center;
+    box-shadow: 20px 20px 20px rgb(255, 173, 153);
+    
+}
+
+.new {
+    width:25%;
+    height: 300px;
+    margin:20px;
+    box-sizing:border-box;
+    background-color: #edd8cd;
+    border: 5px solid;
+    text-align: center;
+    box-shadow: 20px 20px 20px rgb(255, 173, 153);
+    
+}
+
+.recovered {
+    width:25%;
+    height: 300px;
+    margin:20px;
+    box-sizing:border-box;
+    background-color: #fa2d73;
+    border: 5px solid;
+    text-align: center;
+    box-shadow: 20px 20px 20px rgb(255, 173, 153);
+    
+}
+
+.tot-cases {
+    width:25%;
+    height: 300px;
+    margin:20px;
+    box-sizing:border-box;
+    background-color: #2a4731;
+    border: 5px solid;
+    text-align: center;
+    box-shadow: 20px 20px 20px rgb(255, 173, 153);
+    
+}
+
+.tot-deaths {
+    width:25%;
+    height: 300px;
+    margin:20px;
+    box-sizing:border-box;
+    background-color: #ff4701;
+    border: 5px solid;
+    text-align: center;
+    box-shadow: 20px 20px 20px rgb(255, 173, 153);
+    
+}
+
+.tot-tests {
+    width:25%;
+    height: 300px;
+    margin:20px;
+    box-sizing:border-box;
+   background-color: #d0bed4;
+    border: 5px solid;
+    text-align: center;
+    box-shadow: 20px 20px 20px rgb(255, 173, 153);
+    
+}
+
+p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+}

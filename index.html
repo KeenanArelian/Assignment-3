@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Covid In Indonesia</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="big-box">
+        <h1>COVID 19 TRACKER</h1>
+        <form>
+            <div class="form-world" id="line">
+                <input name="country" placeholder="Input Country" type="text" id="input-negara">
+                <button type="submit" id="button1" class="btn-change">Get Data</button>
+            </div>
+        </form>
+        <div class="container">
+            <div class="row-1">
+                <div class="active">
+                    <img src="case-study.png" width="60px" height="60px">
+                    <p id="active-cases">Active Cases</p>
+                    <p id="akhir-cases"></p>
+                </div> 
+                <div class="new">
+                    <img src="cardiology.png" width="60px" height="60px">
+                    <p id="new-cases">New Cases</p>
+                    <p id="akhir-cases2"></p>
+                </div>
+                <div class="recovered">
+                    <img src="6673749_emergency_health_healthcare_hospital_kit_icon.png" width="60px" height="60px">
+                    <p id="recovered-cases">Recovered Cases</p>
+                    <p id="akhir-cases3"></p>
+                </div>
+            </div>
+            <div class="row-2">
+                <div class="tot-cases">
+                    <img src="6141410_convalescence_covid19_recovered_recuperate_rehabilitation_icon.png" width="60px" height="60px">
+                    <p id="total-cases">Total Cases</p>
+                    <p id="akhir-cases4"></p>
+                </div>
+                <div class="tot-deaths">
+                    <img src="3792050_cemetery_grave_halloween_tomb_icon.png" width="60px" height="60px">
+                    <p id="total-deaths">Total Deaths</p>
+                    <p id="akhir-cases5"></p>
+                </div>
+                <div class="tot-tests">
+                    <img src="9026054_syringe_icon.png" width="60px" height="60px">
+                    <p id="total-tests">Total Tests</p>
+                    <p id="akhir-cases6"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+      const settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://covid-193.p.rapidapi.com/history?country=usa&day=2020-06-02",
+	"method": "GET",
+	"headers": {
+		"X-RapidAPI-Key": "a8131cea2emsh8c23824310ce735p1d70f9jsnf8693b45dd88",
+		"X-RapidAPI-Host": "covid-193.p.rapidapi.com"
+	}
+};
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+    document.getElementById('akhir-cases').innerHTML=response.response[0].cases.active
+    document.getElementById('akhir-cases2').innerHTML=response.response[0].cases.new
+    document.getElementById('akhir-cases3').innerHTML=response.response[0].cases.recovered
+    document.getElementById('akhir-cases4').innerHTML=response.response[0].cases.total
+    document.getElementById('akhir-cases5').innerHTML=response.response[0].deaths.total
+    document.getElementById('akhir-cases6').innerHTML=response.response[0].tests.total
+});
+
+var buttonChange = document.getElementById('button1')
+
+buttonChange.addEventListener('click',function(event) {
+    event.preventDefault()
+    let inputNegara = document.getElementById('input-negara')
+    let namaNegara = inputNegara.value
+    let newSetting = {
+        ...settings,
+        url: `https://covid-193.p.rapidapi.com/history?country=${namaNegara}` 
+    }
+    console.log(newSetting);
+    $.ajax(newSetting).done(function(response) {
+    document.getElementById('akhir-cases').innerHTML=response.response[0].cases.active
+    document.getElementById('akhir-cases2').innerHTML=response.response[0].cases.new
+    document.getElementById('akhir-cases3').innerHTML=response.response[0].cases.recovered
+    document.getElementById('akhir-cases4').innerHTML=response.response[0].cases.total
+    document.getElementById('akhir-cases5').innerHTML=response.response[0].deaths.total
+    document.getElementById('akhir-cases6').innerHTML=response.response[0].tests.total
+    })
+})
+    </script>
+</body>
+</html>
